@@ -88,6 +88,14 @@ public class Controller : MonoBehaviour {
                     XorY = false;
                 } else return;
             }
+            bool flag = false;
+            foreach (GameObject cube in temp) {
+                if (cube.name == current_cube.name){
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) return;
             if (XorY) mouseY = 0;
             else mouseX = 0;
             foreach (GameObject cube in temp) {
