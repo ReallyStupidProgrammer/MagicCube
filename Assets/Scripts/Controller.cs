@@ -98,16 +98,17 @@ public class Controller : MonoBehaviour {
             float mouseY = Input.GetAxis("Mouse Y") * 5;
             // print(mouseX);
             hold = true;
-            wholeCube.transform.Rotate(mouseY, -mouseX, 0, Space.World);
+            foreach (Transform cube in wholeCube.GetComponentInChildren<Transform>()) {
+                cube.Rotate(mouseY, -mouseX, 0, Space.World);
+            }
         } else{
             if (hold) {
                 hold = false;
-                generateRotation(wholeCube);
-                generateCubes();
-                if (temp != null) {
-                    foreach (GameObject current in temp) generateRotation(current);
-                    temp = null;
+                foreach (Transform cube in wholeCube.GetComponentInChildren<Transform>()) {
+                    generateRotation(cube.gameObject);
                 }
+                generateCubes();
+                temp = null;
             }
 
         }
