@@ -44,12 +44,6 @@ public class Controller : MonoBehaviour {
         float newy = generateOneAngle(rotationy);
         float newz = generateOneAngle(rotationz);
         current.transform.localRotation = Quaternion.Euler(newx, newy, newz);
-        if (current.name == "GameObject (14)") {
-            print(newx);
-            print(newy);
-            print(newz);
-            print(current.transform.rotation.eulerAngles);
-        }
     }
 
     private void generateCubes() {
