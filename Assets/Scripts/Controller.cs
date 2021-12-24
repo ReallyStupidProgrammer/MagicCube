@@ -105,7 +105,16 @@ public class Controller : MonoBehaviour {
             float mouseX = Input.GetAxis("Mouse X") * 5;
             float mouseY = Input.GetAxis("Mouse Y") * 5;
             // print(mouseX);
+            if (!hold) {
+                if (Mathf.Abs(mouseX) > Mathf.Abs(mouseY)) {
+                    XorY = true;
+                } else if (Mathf.Abs(mouseX) < Mathf.Abs(mouseY)) {
+                    XorY = false;
+                } else return;
+            }
             hold = true;
+            if (XorY) mouseY = 0;
+            else mouseX = 0;
             foreach (Transform cube in wholeCube.GetComponentInChildren<Transform>()) {
                 cube.Rotate(mouseY, -mouseX, 0, Space.World);
             }
