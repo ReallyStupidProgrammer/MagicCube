@@ -16,5 +16,8 @@
     "intro" :           "HOW TO PLAY",
     "help" :            "1. Use the right button to control the whole cube. \n2. Use the left button to control one row or one column of the cube. \n3. The aim is to move the red ball to the blue cube.",
     "menu" :            "Menu",
-    "steps":            "Steps:"
+    "steps":            "Steps:",
+    "rank" :            "Rank",
+    "time" :            "Time",
+    "step" :            "Steps"
 }
