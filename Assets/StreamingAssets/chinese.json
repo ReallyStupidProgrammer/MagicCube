@@ -1,0 +1,18 @@
+{
+    "title" :           "神奇魔方",
+    "buttonStart" :     "开始",
+    "buttonSetting" :   "设置",
+    "buttonHelp" :      "帮助",
+    "buttonExit" :      "退出",
+    "buttonBack" :      "返回",
+    "buttonMenu" :      "返回首页",
+    "buttonNewGame" :   "新游戏",
+    "buttonContinue" :  "继续游戏",
+    "music" :           "音乐:",
+    "language" :        "语言:",
+    "success" :         "成功！",
+    "acknowledge" :     "制作: \n 憨憨程序猿",
+    "intro" :           "帮助",
+    "help" :            "1. 按住鼠标右键拖动整个魔方。 \n\n2. 按住鼠标左键拖动某一行或某一列。 \n\n3. 让红色小球滚入蓝色块通关。",
+    "menu" :            "菜单"
+}

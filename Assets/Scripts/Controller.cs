@@ -36,7 +36,7 @@ public class Controller : MonoBehaviour {
     }
 
     private void generateRotation(GameObject current) {
-        if (current.name == "GameObject (14)") print(current.transform.rotation.eulerAngles);
+        // if (current.name == "GameObject (14)") print(current.transform.rotation.eulerAngles);
         float rotationx = current.transform.rotation.eulerAngles.x;
         float rotationy = current.transform.rotation.eulerAngles.y;
         float rotationz = current.transform.rotation.eulerAngles.z;

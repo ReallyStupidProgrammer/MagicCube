@@ -1,0 +1,19 @@
+{
+    "title" :           "Magic Cube",
+    "buttonStart" :     "Start",
+    "buttonSetting" :   "Settings",
+    "buttonHelp" :      "Help",
+    "buttonExit" :      "Exit",
+    "buttonBack" :      "back",
+    "buttonMenu" :      "Back to Menu",
+    "buttonNewGame" :   "New Game",
+    "buttonContinue" :  "Continue",
+    "music" :           "Music:",
+    "sound" :           "Sounds:",
+    "language" :        "Language:",
+    "success" :         "MISSION COMPELETE!",
+    "acknowledge" :     "Made by: \n RealyStupidProgrammer",
+    "intro" :           "HOW TO PLAY",
+    "help" :            "1. Use the right button to control the whole cube. \n2. Use the left button to control one row or one column of the cube. \n3. The aim is to move the red ball to the blue cube.",
+    "menu" :            "Menu"
+}
