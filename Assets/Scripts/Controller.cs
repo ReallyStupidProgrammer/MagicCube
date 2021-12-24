@@ -126,6 +126,7 @@ public class Controller : MonoBehaviour {
                 }
                 generateCubes();
                 temp = null;
+                Step.stepNum ++;
             }
 
         }
