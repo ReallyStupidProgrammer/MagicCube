@@ -14,6 +14,6 @@ public class End : MonoBehaviour {
 
     private void OnTriggerExit(Collider other) {
         if (other.name != color + "LittleCube") return;
-        correctNum ++;
+        correctNum --;
     }
 }
