@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour {
 
+    private static bool skipped = false;
     public GameObject wholeCube;
     private List<GameObject> leftCubes;
     private List<GameObject> rightCubes;
@@ -60,7 +61,6 @@ public class Controller : MonoBehaviour {
                 if (real_cube.position.x > 1) rightCubes.Add(cube);
                 if (real_cube.position.y > 1) upCubes.Add(cube);
                 if (real_cube.position.y < -1) downCubes.Add(cube);
-                if (real_cube.name == "redLittleCube") print(real_cube.position);
             } else {
                 if (Mathf.Abs(real_cube.position.x + 2) < 0.00001) leftCubes.Add(cube);
                 if (Mathf.Abs(real_cube.position.x - 2) < 0.00001) rightCubes.Add(cube);
@@ -80,7 +80,11 @@ public class Controller : MonoBehaviour {
     }
 
     private void Update() {
-        if (End.correctNum == 2) SceneManager.LoadSceneAsync(2);
+        if (End.correctNum == 0 && !skipped) {
+            skipped = true;
+            SceneManager.LoadSceneAsync(2);
+            return;
+        }
         if (!hold && !getHit()) return;
         GameObject current_object = hit.collider.gameObject;
         GameObject current_cube = getCube(current_object);
