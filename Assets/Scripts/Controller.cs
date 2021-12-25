@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour {
 
@@ -54,10 +55,19 @@ public class Controller : MonoBehaviour {
         foreach (Transform cubeTrans in wholeCube.GetComponentInChildren<Transform>()) {
             GameObject cube = cubeTrans.gameObject;
             Transform real_cube = cube.transform.GetChild(0);
-            if (Mathf.Abs(real_cube.position.x + 2) < 0.00001) leftCubes.Add(cube);
-            if (Mathf.Abs(real_cube.position.x - 2) < 0.00001) rightCubes.Add(cube);
-            if (Mathf.Abs(real_cube.position.y - 2) < 0.00001) upCubes.Add(cube);
-            if (Mathf.Abs(real_cube.position.y + 2) < 0.00001) downCubes.Add(cube);
+            if (real_cube.name.IndexOf("LittleCube") >= 0) {
+                if (real_cube.position.x < -1) leftCubes.Add(cube);
+                if (real_cube.position.x > 1) rightCubes.Add(cube);
+                if (real_cube.position.y > 1) upCubes.Add(cube);
+                if (real_cube.position.y < -1) downCubes.Add(cube);
+                if (real_cube.name == "redLittleCube") print(real_cube.position);
+            } else {
+                if (Mathf.Abs(real_cube.position.x + 2) < 0.00001) leftCubes.Add(cube);
+                if (Mathf.Abs(real_cube.position.x - 2) < 0.00001) rightCubes.Add(cube);
+                if (Mathf.Abs(real_cube.position.y - 2) < 0.00001) upCubes.Add(cube);
+                if (Mathf.Abs(real_cube.position.y + 2) < 0.00001) downCubes.Add(cube);  
+            }
+
         }    
     }
 
@@ -70,10 +80,12 @@ public class Controller : MonoBehaviour {
     }
 
     private void Update() {
+        if (End.correctNum == 2) SceneManager.LoadSceneAsync(2);
         if (!hold && !getHit()) return;
         GameObject current_object = hit.collider.gameObject;
         GameObject current_cube = getCube(current_object);
         if (Input.GetMouseButton(0)) {
+            if (!hold) generateCubes();
             hold = true;
             float mouseX = Input.GetAxis("Mouse X") * 5;
             float mouseY = Input.GetAxis("Mouse Y") * 5;
@@ -102,6 +114,7 @@ public class Controller : MonoBehaviour {
                 cube.transform.Rotate(mouseY, -mouseX, 0, Space.World);
             }
         } else if (Input.GetMouseButton(1)) {
+            if (!hold) generateCubes();
             float mouseX = Input.GetAxis("Mouse X") * 5;
             float mouseY = Input.GetAxis("Mouse Y") * 5;
             // print(mouseX);
@@ -124,7 +137,6 @@ public class Controller : MonoBehaviour {
                 foreach (Transform cube in wholeCube.GetComponentInChildren<Transform>()) {
                     generateRotation(cube.gameObject);
                 }
-                generateCubes();
                 temp = null;
                 Step.stepNum ++;
             }

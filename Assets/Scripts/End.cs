@@ -1,12 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour {
 
+    public static int correctNum = 0;
+    public string color;
+
     private void OnTriggerEnter(Collider other) {
-        if (other.name != "littleCube") return;
-        SceneManager.LoadSceneAsync(2);
+        if (other.name != color + "LittleCube") return;
+        correctNum ++;
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.name != color + "LittleCube") return;
+        correctNum ++;
     }
 }
