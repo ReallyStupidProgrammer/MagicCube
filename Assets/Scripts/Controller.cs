@@ -80,7 +80,7 @@ public class Controller : MonoBehaviour {
     }
 
     private void Update() {
-        if (End.correctNum == 0 && !skipped) {
+        if (End.correctNum == 2 && !skipped) {
             skipped = true;
             SceneManager.LoadSceneAsync(2);
             return;
